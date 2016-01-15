@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<title>People</title>
+<link rel="stylesheet" href="./main.css"/>
+<script type="application/javascript">
+window.state = {
+    "account": {
+        "email": "scott@ninjascript.com"
+    },
+    "people": [
+        {
+            "name": "Scott Grogan",
+            "email": "scott@ninjascript.com",
+            "manager": "foobar@ninjascript.com",
+            "goals": [
+                {
+                    "name": "Lead the XP reading group",
+                    "tasks": [
+                        { "name": "Schedule regular meeting and send the invite to all teams", "deadline": 20160122, "completed_on": null },
+                        { "name": "Put together a program schedule. Goal to get through the book in 10 weeks", "deadline": 20160122, "completed_on": null }
+                    ],
+                    "comments": []
+                }, {
+                    "name": "Train Ben and David as project leads",
+                    "tasks": [
+                        { "name": "Schedule regular meeting with both to discuss leadership (a la Practice Leads meeting)", "deadline": 20160122, "completed_on": null },
+                        { "name": "Put together a program schedule", "deadline": 20160122, "completed_on": null }
+                    ],
+                    "comments": []
+                }
+            ],
+            "comments": []
+        }, {
+            "name": "Chris Foobar",
+            "email": "chris@ninjascript.com",
+            "manager": "scott@ninjascript.com",
+            "goals": [
+                {
+                    "name": "Resurrect the 'ATP' program",
+                    "tasks": [
+                        { "name": "Meet w/ Ted & Scott it identify action items", "deadline": 20160122, "completed_on": null },
+                        { "name": "Debrand the 'Tools' project", "deadline": 20160122, "completed_on": null }
+                    ],
+                    "comments": [
+                        {
+                            "date": 20160114,
+                            "author": "scott@ninjascript.com",
+                            "message": "Had a brief meeting today to set expectations. Chris is on board and thinking about how the SoDA 'Tools we Use' project could apply"
+                        }
+                    ]
+                }
+            ],
+            "comments": []
+        }, {
+            "name": "David Foobar",
+            "email": "david@ninjascript.com",
+            "manager": "scott@ninjascript.com",
+            "goals": [
+                {
+                    "name": "Platform processes & practices",
+                    "tasks": [
+                        { "name": "Document tools & practices for Xbox 360 apps", "deadline": 20160122, "completed_on": null },
+                        { "name": "Document tools & practices for Xbox One apps", "deadline": 20160122, "completed_on": null },
+                        { "name": "Engineering group presentation on testing Xbox 360 and Xbox One apps", "deadline": 20160122, "completed_on": null }
+                    ],
+                    "comments": [
+                        {
+                            "date": 20160115,
+                            "author": "scott@ninjascript.com",
+                            "message": "Met today to discuss 2016 goals. Asked for patience while I work on putting David and Ben M. on project lead tracks."
+                        }
+                    ]
+                }
+            ],
+            "comments": []
+        }, {
+            "name": "Ben Foobar",
+            "email": "ben@ninjascript.com",
+            "manager": "scott@ninjascript.com",
+            "goals": [],
+            "comments": []
+        }
+    ]
+};
+</script>
+</head>
+<body>
+foobar
+<section id="root"></section>
+<script type="application/javascript" src="./app.js"></script>
+</body>
+</html>
