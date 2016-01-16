@@ -21,7 +21,7 @@ export default class Scorecard extends React.Component {
 
   comments () {
     return this.props.comments.map((comment, i) => {
-      return <Comment key={i}
+      return <Comment key={comment._id}
           date={comment.date}
           message={comment.message}
           author={comment.author}/>;
@@ -37,7 +37,9 @@ export default class Scorecard extends React.Component {
           </h1>
         </div>
         <div className="row">
-          <div className="col-md-8">{ this.goals() }</div>
+          <div className="col-md-8">
+            { this.goals() }
+          </div>
           <div className="col-md-4">
             <textarea className="form-control" rows="4" placeholder="Add a comment..."></textarea>
             { this.comments() }
