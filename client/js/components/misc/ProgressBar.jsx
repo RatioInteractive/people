@@ -18,8 +18,8 @@ export default class ProgressBar extends React.Component {
           aria-valuemin={min}
           aria-valuemax={max}
           style={{
-            'width': pct,
-            'min-width': 45
+            width: pct,
+            minWidth: 45
           }}>{`${value} of ${max}`}</div>
       </div>
     );
