@@ -1,5 +1,6 @@
 import React from 'react';
 import Task from './Task.jsx';
+import Moment from 'moment';
 
 export default class Goal extends React.Component {
   constructor (props) {
@@ -18,13 +19,17 @@ export default class Goal extends React.Component {
     let max = 6;
     let val = 3;
     let pct = (val / max * 100 >> 0) + '%';
+    let lastUpdate = Moment(this.props.updatedOn, 'YYYYMMDD').fromNow();
 
     return (
       <div className="scorecard-goal panel panel-default">
-        <div className="panel-heading">
-          <h2 className="panel-title">
+        <div className="panel-heading clearfix">
+          <h2 className="panel-title pull-left">
             { this.props.name }
           </h2>
+          <small className="pull-right">
+              { lastUpdate }
+          </small>
         </div>
         <div className="panel-body">
           <div className="progress" style={{ padding: 0 }}>

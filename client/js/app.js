@@ -4,8 +4,8 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import Scorecard from './containers/Scorecard.jsx';
-import reducers from './reducers'
+import Scorecard from './containers/Scorecard';
+import reducers from './reducers';
 import thunkMiddleware from 'redux-thunk';
 
 // Thunk middleware allows actions to return functions as well as objects.

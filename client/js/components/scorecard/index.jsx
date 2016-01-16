@@ -1,9 +1,8 @@
 import React from 'react';
-import Comment from '../components/scorecard/Comment.jsx';
-import Goal from '../components/scorecard/Goal.jsx';
-import { connect } from 'react-redux';
+import Comment from './Comment.jsx';
+import Goal from './Goal.jsx';
 
-class Scorecard extends React.Component {
+export default class Scorecard extends React.Component {
   constructor (props) {
     super(props);
   }
@@ -15,7 +14,9 @@ class Scorecard extends React.Component {
         name={goal.name}
         description={goal.description}
         tasks={goal.tasks}
-        comments={goal.comments}/>;
+        comments={goal.comments}
+        createdOn={goal.created_on}
+        updatedOn={goal.updated_on}/>;
     });
   }
 
@@ -47,9 +48,3 @@ class Scorecard extends React.Component {
     );
   }
 }
-
-function propsFromState (state) {
-  return state.people[0];
-}
-
-export default connect(propsFromState)(Scorecard);
