@@ -1,4 +1,5 @@
 import React from 'react';
+import Comment from '../components/scorecard/Comment.jsx';
 import Goal from '../components/scorecard/Goal.jsx';
 import { connect } from 'react-redux';
 
@@ -20,17 +21,10 @@ class Scorecard extends React.Component {
 
   comments () {
     return this.props.comments.map((comment, i) => {
-      return (
-        <div key={i}>
-          <hr/>
-          <p>
-            { comment.message }
-          </p>
-          <p className="text-right">
-            <small>{ comment.author } posted on { comment.date }</small>
-          </p>
-        </div>
-      );
+      return <Comment key={i}
+          date={comment.date}
+          message={comment.message}
+          author={comment.author}/>;
     });
   }
 
