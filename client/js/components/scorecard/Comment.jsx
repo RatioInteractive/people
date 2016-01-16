@@ -9,14 +9,12 @@ export default class Comment extends React.Component {
   render () {
     let datestr = Moment(this.props.date, 'YYYYMMDD').format('MMM Do YYYY');
     return (
-        <div className="scorecard-comment">
+        <div className="scorecard-comment text-right">
           <hr/>
-          <p>
+          <p className="text-left">
             { this.props.message }
           </p>
-          <p className="text-right">
-            <small>{ this.props.author } posted on { datestr }</small>
-          </p>
+          <small>{ this.props.author } posted on { datestr }</small>
         </div>
     );
   }
