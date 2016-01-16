@@ -10,8 +10,7 @@ export default class Goal extends React.Component {
 
   tasks () {
     return this.props.tasks.map(task => {
-      let key = `${this.props.name}:${task.name}:${task.deadline}`;
-      return <Task key={key}
+      return <Task key={task._id}
           name={task.name}
           deadline={task.deadline}
           completedOn={task.completed_on}/>;

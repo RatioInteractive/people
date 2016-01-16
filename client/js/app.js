@@ -7,11 +7,12 @@ import { Provider } from 'react-redux';
 import Scorecard from './containers/Scorecard';
 import reducers from './reducers';
 import thunkMiddleware from 'redux-thunk';
+import state from './state';
 
 // Thunk middleware allows actions to return functions as well as objects.
 // Useful for async operations like posting to a back-end.
 // @see: http://rackt.org/redux/docs/advanced/AsyncActions.html
-let store = applyMiddleware(thunkMiddleware)(createStore)(reducers, window.state);
+let store = applyMiddleware(thunkMiddleware)(createStore)(reducers, state);
 
 ReactDom.render((
   <Provider store={store}>

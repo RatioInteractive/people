@@ -9,8 +9,7 @@ export default class Scorecard extends React.Component {
 
   goals () {
     return this.props.goals.map(goal => {
-      let key = `${this.props.name}:${goal.name}`;
-      return <Goal key={key}
+      return <Goal key={goal._id}
         name={goal.name}
         description={goal.description}
         tasks={goal.tasks}

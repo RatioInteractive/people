@@ -14,11 +14,14 @@ module.exports = [{
   },
   module: {
     loaders: [{
-      test: /\.js/,
+      test: /\.js[x]?$/,
       loader: 'babel'
     }, {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract('style', ['css', 'sass?sourceMap'])
+    }, {
+      test: /\.json/,
+      loader: 'file?name=[path][name].[ext]'
     }, {
       test: /\.gif|\.jpg|\.png/,
       loader: 'file?name=[path][name].[ext]'
