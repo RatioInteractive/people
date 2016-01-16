@@ -21,7 +21,7 @@ export default {
     _id: 'e691a584-bca5-11e5-9912-ba0be0483c18',
     _parent: 'c5c84f5a-bc9c-11e5-9912-ba0be0483c18',
     date: 20160115,
-    author: 'foobar@ninjascript.com',
+    author: 'Foobar',
     message: 'Emerged into consciousness the ash of stellar alchemy a very small stage in a vast cosmic arena.'
   }]
 };
