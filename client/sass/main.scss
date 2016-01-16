@@ -1,7 +1,11 @@
-$fonts: "Helvetica Neue", sans-serif;
-$black: #333;
+@import
+  '~bootstrap-sass/assets/stylesheets/bootstrap-sprockets',
+  '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-body {
-  font: 100% $fonts;
-  color: $black;
-}
+// $fonts: "Helvetica Neue", sans-serif;
+// $black: #333;
+//
+// body {
+//   font: 100% $fonts;
+//   color: $black;
+// }
