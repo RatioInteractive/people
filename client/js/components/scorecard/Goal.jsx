@@ -2,7 +2,10 @@ import React from 'react';
 import Moment from 'moment';
 import Task from './Task.jsx';
 import ProgressBar from '../misc/ProgressBar.jsx';
+import * as Goals from '../../actions/Goals';
 import * as Tasks from '../../actions/Tasks';
+
+const EMPTY_NAME_FIELD_CONTENT = 'Unnamed...';
 
 export default React.createClass({
   tasks: function tasks () {
@@ -28,8 +31,12 @@ export default React.createClass({
     return (
       <div className="scorecard-goal panel panel-default">
         <div className="panel-heading clearfix">
-          <h2 className="panel-title pull-left">
-            { this.props.goal.name }
+          <h2 ref="nameField"
+            className="panel-title pull-left"
+            onClick={this.onNameFieldClick}
+            onBlur={this.onNameFieldBlur}
+            onKeyDown={this.onNameFieldKeyDown}>
+            { this.props.goal.name || EMPTY_NAME_FIELD_CONTENT }
           </h2>
           <small className="pull-right">
             { lastUpdate }
@@ -55,6 +62,51 @@ export default React.createClass({
         </ul>
       </div>
     );
+  },
+
+  onNameFieldClick: function onNameFieldClick (evt) {
+    if (this.refs.nameField.textContent === EMPTY_NAME_FIELD_CONTENT) {
+      this.refs.nameField.textContent = '';
+    }
+    this.refs.nameField.contentEditable = true;
+    this.refs.nameField.focus();
+
+    let range = document.createRange();
+    let selection = window.getSelection();
+    range.selectNodeContents(this.refs.nameField);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  },
+
+  onNameFieldBlur: function onNameFieldBlur (evt) {
+    let newName = this.refs.nameField.textContent;
+    let action = Goals.setName(this.props.goal, newName);
+
+    this.refs.nameField.contentEditable = false;
+
+    if (newName === '') {
+      this.refs.nameField.textContent = EMPTY_NAME_FIELD_CONTENT;
+    }
+
+    if (newName !== this.props.goal.name) {
+      this.props.dispatch(action);
+    }
+  },
+
+  onNameFieldKeyDown: function onNameFieldKeyDown (evt) {
+    switch (evt.key) {
+      case 'Enter':
+        // Cancelling the event prevents the new line from being
+        // entered after the new comment is saved
+        evt.stopPropagation();
+        evt.preventDefault();
+        this.refs.nameField.blur();
+        break;
+      case 'Escape':
+        this.refs.nameField.textContent = this.props.goal.name;
+        this.refs.nameField.blur();
+        break;
+    }
   },
 
   onNewTaskDescriptionBlur: function onNewTaskDescriptionBlur (evt) {

@@ -89,7 +89,7 @@ export default React.createClass({
         // entered after the new comment is saved
         evt.stopPropagation();
         evt.preventDefault();
-        this.onCommentFieldBlur(evt);
+        this.refs.commentField.blur();
         break;
       case 'Escape':
         this.refs.commentField.value = '';
