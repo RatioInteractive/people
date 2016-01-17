@@ -10,6 +10,7 @@ import * as Comments from './actions/Comments';
 import * as Goals from './actions/Goals';
 import * as People from './actions/People';
 import * as Tasks from './actions/Tasks';
+import * as User from './actions/User';
 import state from './state';
 
 // Middleware that logs every action to the console
@@ -29,7 +30,8 @@ let reducers = combineReducers({
   comments: Comments.reducer,
   goals: Goals.reducer,
   people: People.reducer,
-  tasks: Tasks.reducer
+  tasks: Tasks.reducer,
+  user: User.reducer
 });
 
 // Thunk middleware allows actions to return functions as well as objects.

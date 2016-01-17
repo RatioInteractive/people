@@ -22,6 +22,7 @@ function getCommentsForPerson (comments, person) {
 }
 
 function propsFromState (state) {
+  let user = state.user;
   let person = state.people[0];
   let goals = getGoalsForPerson(state.goals, person);
 
@@ -29,6 +30,7 @@ function propsFromState (state) {
   person.comments = getCommentsForPerson(state.comments, person);
 
   return Object.assign({}, person, {
+    user: user,
     goals: goals
   });
 }

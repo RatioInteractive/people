@@ -1,8 +1,17 @@
 export default {
+  // The current user
+  user: {
+    _id: 'c5c84f5a-bc9c-11e5-9912-ba0be0483c18',
+    name: 'Scott Grogan'
+  },
+
+  // The people referred to by the goals, tasks or comments
   people: [{
     _id: 'c5c84f5a-bc9c-11e5-9912-ba0be0483c18',
     name: 'Scott Grogan'
   }],
+
+  // High-level goals with descriptions and deadlines
   goals: [{
     _id: 'db184996-bc9c-11e5-9912-ba0be0483c18',
     _parent: 'c5c84f5a-bc9c-11e5-9912-ba0be0483c18',
@@ -11,12 +20,16 @@ export default {
     created_on: '2016-01-01T15:55:45-08:00',
     updated_on: '2016-01-07T15:55:45-08:00'
   }],
+
+  // Low-level tasks. These are often children of goals.
   tasks: [{
     _id: 'ea4d4fce-bc9c-11e5-9912-ba0be0483c18',
     _parent: 'db184996-bc9c-11e5-9912-ba0be0483c18',
     name: 'Schedule regular meeting and send the invite to all teams', deadline: '2016-01-22T15:55:45-08:00',
     completed_on: null
   }],
+
+  // Arbitrary comments. May be children of any top-level object.
   comments: [{
     _id: 'e691a584-bca5-11e5-9912-ba0be0483c18',
     _parent: 'c5c84f5a-bc9c-11e5-9912-ba0be0483c18',

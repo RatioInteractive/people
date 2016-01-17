@@ -52,7 +52,7 @@ export default React.createClass({
 
   onCommentFieldBlur: function onCommentFieldBlur (evt) {
     let parent = this.props;
-    let author = 'Foobar';
+    let author = this.props.user;
     let message = this.refs.commentField.value;
     let action = Comments.create(parent, author, message);
     this.refs.commentField.value = '';

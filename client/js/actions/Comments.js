@@ -11,7 +11,7 @@ export function create (parent, author, message) {
         _id: Uuid(),
         _parent: parent._id,
         date: Moment().format(),
-        author: author,
+        author: author.name,
         message: message
       }
     }
