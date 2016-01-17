@@ -3,6 +3,7 @@ import Moment from 'moment';
 
 export const CREATE = 'Goals:CREATE';
 export const SET_NAME = 'Goals:SET_NAME';
+export const SET_DESCRIPTION = 'Goals:SET_DESCRIPTION';
 
 export function create (parent) {
   return {
@@ -31,6 +32,17 @@ export function setName (goal, value) {
   };
 }
 
+export function setDescription (goal, value) {
+  return {
+    type: SET_DESCRIPTION,
+    payload: {
+      goal: Object.assign({}, goal, {
+        description: value
+      })
+    }
+  };
+}
+
 export function reducer (goals = [], action) {
 
   let result = [].concat(goals);
@@ -41,6 +53,7 @@ export function reducer (goals = [], action) {
       break;
 
     case SET_NAME:
+    case SET_DESCRIPTION:
       result = result.map(goal => {
         if (goal._id === action.payload.goal._id) {
           return action.payload.goal;
