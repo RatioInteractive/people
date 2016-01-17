@@ -1,13 +1,10 @@
 import React from 'react';
 import Comment from './Comment.jsx';
 import Goal from './Goal.jsx';
+import * as Comments from '../../actions/Comments';
 
-export default class Scorecard extends React.Component {
-  constructor (props) {
-    super(props);
-  }
-
-  goals () {
+export default React.createClass({
+  goals: function goals () {
     return this.props.goals.map(goal => {
       return <Goal key={goal._id}
         name={goal.name}
@@ -17,18 +14,18 @@ export default class Scorecard extends React.Component {
         createdOn={goal.created_on}
         updatedOn={goal.updated_on}/>;
     });
-  }
+  },
 
-  comments () {
+  comments: function comments () {
     return this.props.comments.map((comment, i) => {
       return <Comment key={comment._id}
           date={comment.date}
           message={comment.message}
           author={comment.author}/>;
     });
-  }
+  },
 
-  render () {
+  render: function render () {
     return (
       <article className="scorecard">
         <div className="page-header">
@@ -41,11 +38,24 @@ export default class Scorecard extends React.Component {
             { this.goals() }
           </div>
           <div className="col-md-4">
-            <textarea className="form-control" rows="4" placeholder="Add a comment..."></textarea>
+            <textarea ref="commentField"
+              className="form-control"
+              rows="4"
+              placeholder="Add a comment..."
+              onBlur={this.onCommentFieldBlur}></textarea>
             { this.comments() }
           </div>
         </div>
       </article>
     );
+  },
+
+  onCommentFieldBlur: function onCommentFieldBlur (evt) {
+    let parent = this.props;
+    let author = 'Foobar';
+    let message = this.refs.commentField.value;
+    let action = Comments.create(parent, author, message);
+    this.refs.commentField.value = '';
+    this.props.dispatch(action);
   }
-}
+});
