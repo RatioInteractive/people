@@ -30,7 +30,7 @@ export default React.createClass({
       <article className="scorecard">
         <div className="page-header">
           <h1>
-            { this.props.name } <small>Scorecard</small>
+            { this.props.person.name } <small>Scorecard</small>
           </h1>
         </div>
         <div className="row">

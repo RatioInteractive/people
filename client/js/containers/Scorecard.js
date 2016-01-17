@@ -25,13 +25,15 @@ function propsFromState (state) {
   let user = state.user;
   let person = state.people[0];
   let goals = getGoalsForPerson(state.goals, person);
+  let comments = getCommentsForPerson(state.comments, person);
 
   goals = mapTasksToGoals(state.tasks, state.goals);
-  person.comments = getCommentsForPerson(state.comments, person);
 
-  return Object.assign({}, person, {
+  return Object.assign({}, {
     user: user,
-    goals: goals
+    person: person,
+    goals: goals,
+    comments: comments
   });
 }
 
