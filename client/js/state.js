@@ -25,7 +25,7 @@ export default {
   tasks: [{
     _id: 'ea4d4fce-bc9c-11e5-9912-ba0be0483c18',
     _parent: 'db184996-bc9c-11e5-9912-ba0be0483c18',
-    name: 'Schedule regular meeting and send the invite to all teams', deadline: '2016-01-22T15:55:45-08:00',
+    name: 'Schedule regular meeting and send the invite to all teams',
     completed_on: null
   }],
 

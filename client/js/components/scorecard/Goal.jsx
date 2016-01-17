@@ -60,8 +60,7 @@ export default React.createClass({
   onNewTaskDescriptionBlur: function onNewTaskDescriptionBlur (evt) {
     let parent = this.props.goal;
     let description = this.refs.newTaskDescription.value;
-    let deadline = Moment().format();
-    let action = Tasks.create(parent, description, deadline);
+    let action = Tasks.create(parent, description);
     if (description) {
       this.refs.newTaskDescription.value = '';
       this.props.dispatch(action);

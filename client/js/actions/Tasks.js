@@ -5,7 +5,7 @@ export const CREATE = 'Tasks:CREATE';
 export const COMPLETE = 'Tasks:COMPLETE';
 export const UNCOMPLETE = 'Tasks:UNCOMPLETE';
 
-export function create (parent, name, deadline) {
+export function create (parent, name) {
   return {
     type: CREATE,
     payload: {
@@ -13,7 +13,6 @@ export function create (parent, name, deadline) {
         _id: Uuid(),
         _parent: parent._id,
         name: name,
-        deadline: Moment(deadline).format(),
         completed_on: null
       })
     }
