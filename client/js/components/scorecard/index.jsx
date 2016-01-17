@@ -2,8 +2,25 @@ import React from 'react';
 import Comment from './Comment.jsx';
 import Goal from './Goal.jsx';
 import * as Comments from '../../actions/Comments';
+import * as Goals from '../../actions/Goals';
 
 export default React.createClass({
+  navbar: function navbar () {
+    return (
+      <nav className="navbar navbar-default">
+        <div className="container-fluid">
+          <div className="navbar-form navbar-right">
+            <button className="btn btn-primary"
+              onClick={this.onAddGoalButtonClick}>
+              <small className="glyphicon glyphicon-plus"></small>
+              <span> Add a goal</span>
+            </button>
+          </div>
+        </div>
+      </nav>
+    );
+  },
+
   goals: function goals () {
     return this.props.goals.map(goal => {
       return <Goal key={goal._id}
@@ -31,6 +48,7 @@ export default React.createClass({
         </div>
         <div className="row">
           <div className="col-md-8">
+            { this.navbar() }
             { this.goals() }
           </div>
           <div className="col-md-4">
@@ -45,6 +63,12 @@ export default React.createClass({
         </div>
       </article>
     );
+  },
+
+  onAddGoalButtonClick: function onAddGoalButtonClick (evt) {
+    let parent = this.props.person;
+    let action = Goals.create(parent);
+    this.props.dispatch(action);
   },
 
   onCommentFieldBlur: function onCommentFieldBlur (evt) {
