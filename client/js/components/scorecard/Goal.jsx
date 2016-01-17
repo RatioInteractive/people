@@ -111,6 +111,7 @@ export default React.createClass({
       case 'Escape':
         this.refs.nameField.textContent = this.props.goal.name;
         this.refs.nameField.blur();
+        window.getSelection().removeAllRanges();
         break;
     }
   },
@@ -154,8 +155,9 @@ export default React.createClass({
         this.refs.descriptionField.blur();
         break;
       case 'Escape':
-        this.refs.descriptionField.textContent = this.props.goal.name;
+        this.refs.descriptionField.textContent = this.props.goal.description;
         this.refs.descriptionField.blur();
+        window.getSelection().removeAllRanges();
         break;
     }
   },
