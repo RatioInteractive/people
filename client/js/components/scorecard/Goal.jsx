@@ -9,31 +9,30 @@ export default class Goal extends React.Component {
   }
 
   tasks () {
-    return this.props.tasks.map(task => {
+    return this.props.goal.tasks.map(task => {
       return <Task key={task._id}
-          name={task.name}
-          deadline={task.deadline}
-          completedOn={task.completed_on}/>;
+          task={task}
+          dispatch={this.props.dispatch}/>;
     });
   }
 
   countTasks () {
-    return this.props.tasks.length;
+    return this.props.goal.tasks.length;
   }
 
   countCompletedTasks () {
-    return this.props.tasks.reduce((value, task) => {
+    return this.props.goal.tasks.reduce((value, task) => {
       return task.completed_on ? value + 1 : value;
     }, 0);
   }
 
   render () {
-    let lastUpdate = Moment(this.props.updatedOn, 'YYYYMMDD').fromNow();
+    let lastUpdate = Moment(this.props.goal.updated_on, 'YYYYMMDD').fromNow();
     return (
       <div className="scorecard-goal panel panel-default">
         <div className="panel-heading clearfix">
           <h2 className="panel-title pull-left">
-            { this.props.name }
+            { this.props.goal.name }
           </h2>
           <small className="pull-right">
             { lastUpdate }
@@ -44,7 +43,7 @@ export default class Goal extends React.Component {
             min={0}
             max={this.countTasks()}
             value={this.countCompletedTasks()}/>
-          { this.props.description }
+          { this.props.goal.description }
         </div>
         <ul className="list-unstyled list-group">
           { this.tasks() }

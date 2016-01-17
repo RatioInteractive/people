@@ -7,12 +7,8 @@ export default React.createClass({
   goals: function goals () {
     return this.props.goals.map(goal => {
       return <Goal key={goal._id}
-        name={goal.name}
-        description={goal.description}
-        tasks={goal.tasks}
-        comments={goal.comments}
-        createdOn={goal.created_on}
-        updatedOn={goal.updated_on}/>;
+        goal={goal}
+        dispatch={this.props.dispatch}/>;
     });
   },
 
@@ -51,7 +47,7 @@ export default React.createClass({
   },
 
   onCommentFieldBlur: function onCommentFieldBlur (evt) {
-    let parent = this.props;
+    let parent = this.props.person;
     let author = this.props.user;
     let message = this.refs.commentField.value;
     let action = Comments.create(parent, author, message);
