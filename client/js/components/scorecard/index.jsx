@@ -51,7 +51,9 @@ export default React.createClass({
     let author = this.props.user;
     let message = this.refs.commentField.value;
     let action = Comments.create(parent, author, message);
-    this.refs.commentField.value = '';
-    this.props.dispatch(action);
+    if (message) {
+      this.refs.commentField.value = '';
+      this.props.dispatch(action);
+    }
   }
 });

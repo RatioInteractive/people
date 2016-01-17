@@ -1,32 +1,29 @@
 import React from 'react';
+import Moment from 'moment';
 import Task from './Task.jsx';
 import ProgressBar from '../misc/ProgressBar.jsx';
-import Moment from 'moment';
+import * as Tasks from '../../actions/Tasks';
 
-export default class Goal extends React.Component {
-  constructor (props) {
-    super(props);
-  }
-
-  tasks () {
+export default React.createClass({
+  tasks: function tasks () {
     return this.props.goal.tasks.map(task => {
       return <Task key={task._id}
           task={task}
           dispatch={this.props.dispatch}/>;
     });
-  }
+  },
 
-  countTasks () {
+  countTasks: function countTasks () {
     return this.props.goal.tasks.length;
-  }
+  },
 
-  countCompletedTasks () {
+  countCompletedTasks: function countCompletedTasks () {
     return this.props.goal.tasks.reduce((value, task) => {
       return task.completed_on ? value + 1 : value;
     }, 0);
-  }
+  },
 
-  render () {
+  render: function render () {
     let lastUpdate = Moment(this.props.goal.updated_on, 'YYYYMMDD').fromNow();
     return (
       <div className="scorecard-goal panel panel-default">
@@ -47,8 +44,40 @@ export default class Goal extends React.Component {
         </div>
         <ul className="list-unstyled list-group">
           { this.tasks() }
+          <li className="list-item">
+            <input ref="newTaskDescription"
+              type="text"
+              className="form-control"
+              placeholder="Write another task..."
+              onBlur={this.onNewTaskDescriptionBlur}
+              onKeyDown={this.onNewTaskDescriptionKeyDown}/>
+          </li>
         </ul>
       </div>
     );
+  },
+
+  onNewTaskDescriptionBlur: function onNewTaskDescriptionBlur (evt) {
+    let parent = this.props.goal;
+    let description = this.refs.newTaskDescription.value;
+    let deadline = Moment().format();
+    let action = Tasks.create(parent, description, deadline);
+    if (description) {
+      this.refs.newTaskDescription.value = '';
+      this.props.dispatch(action);
+      this.refs.newTaskDescription.focus();
+    }
+  },
+
+  onNewTaskDescriptionKeyDown: function onNewTaskDescriptionKeydown (evt) {
+    switch (evt.key) {
+      case 'Enter':
+        this.onNewTaskDescriptionBlur(evt);
+        break;
+      case 'Escape':
+        this.refs.newTaskDescription.value = '';
+        this.refs.newTaskDescription.blur();
+        break;
+    }
   }
-}
+});

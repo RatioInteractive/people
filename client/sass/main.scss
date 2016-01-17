@@ -2,10 +2,10 @@
   '~bootstrap-sass/assets/stylesheets/bootstrap-sprockets',
   '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-// $fonts: "Helvetica Neue", sans-serif;
-// $black: #333;
-//
-// body {
-//   font: 100% $fonts;
-//   color: $black;
-// }
+.list-item {
+
+  .form-control {
+    border: 0;
+    border-radius: 0;
+  }
+}
