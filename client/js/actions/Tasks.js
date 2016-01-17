@@ -2,6 +2,7 @@ import Uuid from 'uuid';
 import Moment from 'moment';
 
 export const CREATE = 'Tasks:CREATE';
+export const REMOVE = 'Tasks:REMOVE';
 export const COMPLETE = 'Tasks:COMPLETE';
 export const UNCOMPLETE = 'Tasks:UNCOMPLETE';
 
@@ -15,6 +16,15 @@ export function create (parent, name) {
         name: name,
         completed_on: null
       })
+    }
+  };
+}
+
+export function remove (task) {
+  return {
+    type: REMOVE,
+    payload: {
+      task: Object.assign({}, task)
     }
   };
 }
@@ -48,6 +58,12 @@ export function reducer (tasks = [], action) {
   switch (action.type) {
     case CREATE:
       result.push(action.payload.task);
+      break;
+
+    case REMOVE:
+      result = result.filter(task => {
+        return task._id !== action.payload.task._id;
+      });
       break;
 
     case COMPLETE:

@@ -1,11 +1,19 @@
-@import
-  '~bootstrap-sass/assets/stylesheets/bootstrap-sprockets',
-  '~bootstrap-sass/assets/stylesheets/bootstrap';
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 .list-item {
-
   .form-control {
     border: 0;
     border-radius: 0;
+  }
+}
+
+.scorecard-task {
+  button.close {
+    display: none;
+  }
+  &:hover button.close {
+    display: block;
   }
 }

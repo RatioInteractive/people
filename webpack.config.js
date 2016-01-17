@@ -33,7 +33,7 @@ module.exports = [{
   plugins: [
     new ExtractTextPlugin('main.css'),
     new CopyPlugin([
-      { from: '../index.html', to: 'dist' }
+      { from: '../index.html', to: '' }
     ])
   ]
 }];

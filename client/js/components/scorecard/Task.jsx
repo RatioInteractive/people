@@ -24,6 +24,12 @@ export default React.createClass({
             onChange={this.onCheckboxChange}/>
           {this.label()}
         </label>
+        <button type="button"
+          className="close"
+          aria-label="Close"
+          onClick={this.onRemoveButtonClick}>
+          <small aria-hidden="true" className="glyphicon glyphicon-remove"></small>
+        </button>
       </li>
     );
   },
@@ -31,6 +37,11 @@ export default React.createClass({
   onCheckboxChange: function onCheckboxChange (evt) {
     let action = this.checked() ?
       Tasks.uncomplete(this.props.task) : Tasks.complete(this.props.task);
+    this.props.dispatch(action);
+  },
+
+  onRemoveButtonClick: function onDeleteIconClick (evt) {
+    let action = Tasks.remove(this.props.task);
     this.props.dispatch(action);
   }
 });
