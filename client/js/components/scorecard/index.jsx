@@ -38,7 +38,8 @@ export default React.createClass({
               className="form-control"
               rows="4"
               placeholder="Add a comment..."
-              onBlur={this.onCommentFieldBlur}></textarea>
+              onBlur={this.onCommentFieldBlur}
+              onKeyDown={this.onCommentFieldKeyDown}></textarea>
             { this.comments() }
           </div>
         </div>
@@ -54,6 +55,22 @@ export default React.createClass({
     if (message) {
       this.refs.commentField.value = '';
       this.props.dispatch(action);
+    }
+  },
+
+  onCommentFieldKeyDown: function onCommentFieldKeyDown (evt) {
+    switch (evt.key) {
+      case 'Enter':
+        // Cancelling the event prevents the new line from being
+        // entered after the new comment is saved
+        evt.stopPropagation();
+        evt.preventDefault();
+        this.onCommentFieldBlur(evt);
+        break;
+      case 'Escape':
+        this.refs.commentField.value = '';
+        this.refs.commentField.blur();
+        break;
     }
   }
 });
