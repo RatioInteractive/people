@@ -23,7 +23,7 @@ function getCommentsForPerson (comments, person) {
 
 function propsFromState (state) {
   let user = state.user;
-  let person = state.people[0];
+  let person = state.people[0] || {};
   let goals = getGoalsForPerson(state.goals, person);
   let comments = getCommentsForPerson(state.comments, person);
 

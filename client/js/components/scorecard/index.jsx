@@ -65,6 +65,12 @@ export default React.createClass({
     );
   },
 
+  componentWillReceiveProps: function componentWillReceiveProps (props) {
+    if (!props.user.name) {
+      props.history.replaceState(null, '/');
+    }
+  },
+
   onAddGoalButtonClick: function onAddGoalButtonClick (evt) {
     let parent = this.props.person;
     let action = Goals.create(parent);

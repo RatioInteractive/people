@@ -1,5 +1,6 @@
 import Uuid from 'uuid';
 import Moment from 'moment';
+import * as User from './User';
 
 export const CREATE = 'Comments:CREATE';
 
@@ -25,6 +26,10 @@ export function reducer (comments = [], action) {
   switch (action.type) {
     case CREATE:
       result.unshift(action.payload.comment);
+      break;
+
+    case User.LOGOUT:
+      result = [];
       break;
   }
 

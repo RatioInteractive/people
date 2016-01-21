@@ -3,6 +3,17 @@ import { Link } from 'react-router';
 import * as User from '../../actions/User';
 
 export default React.createClass({
+  links: function links () {
+    if (this.props.user.name) {
+      return (
+        <ul className="nav navbar-nav">
+          <li><Link to="/scorecard">My Scorecard</Link></li>
+          <li><Link to="/team">My Team</Link></li>
+        </ul>
+      );
+    }
+  },
+
   greeting: function greeting () {
     if (this.props.user.name) {
       return <span>Hello, {this.props.user.name}! </span>;
@@ -32,10 +43,7 @@ export default React.createClass({
           <div className="navbar-header">
             <Link className="navbar-brand" to="/">People</Link>
           </div>
-          <ul className="nav navbar-nav">
-            <li><Link to="/scorecard">My Scorecard</Link></li>
-            <li><Link to="/team">My Team</Link></li>
-          </ul>
+          {this.links()}
           <p className="navbar-text navbar-right">
             {this.greeting()}
             {this.auth()}

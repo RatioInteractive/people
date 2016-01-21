@@ -11,5 +11,11 @@ export default React.createClass({
         </header>
       </article>
     );
+  },
+
+  componentWillReceiveProps: function componentWillReceiveProps (props) {
+    if (!props.user.name) {
+      props.history.replaceState(null, '/');
+    }
   }
 });

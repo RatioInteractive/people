@@ -1,5 +1,6 @@
 import Uuid from 'uuid';
 import Moment from 'moment';
+import * as User from './User';
 
 export const CREATE = 'Goals:CREATE';
 export const SET_NAME = 'Goals:SET_NAME';
@@ -61,6 +62,10 @@ export function reducer (goals = [], action) {
           return goal;
         }
       });
+      break;
+
+    case User.LOGOUT:
+      result = [];
       break;
   }
 

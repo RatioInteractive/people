@@ -1,5 +1,6 @@
 import Uuid from 'uuid';
 import Moment from 'moment';
+import * as User from './User';
 
 export const CREATE = 'Tasks:CREATE';
 export const REMOVE = 'Tasks:REMOVE';
@@ -71,6 +72,10 @@ export function reducer (tasks = [], action) {
       result = result.map(task => {
         return task._id === action.payload.task._id ? action.payload.task : task;
       });
+      break;
+
+    case User.LOGOUT:
+      result = [];
       break;
   }
 
