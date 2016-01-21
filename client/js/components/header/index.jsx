@@ -1,7 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router';
+import * as User from '../../actions/User';
 
 export default React.createClass({
+  greeting: function greeting () {
+    if (this.props.user.name) {
+      return <span>Hello, {this.props.user.name}! </span>;
+    } else {
+      return <span></span>;
+    }
+  },
+
+  auth: function auth () {
+    if (this.props.user.name) {
+      return (
+        <a href="#" className="navbar-link"
+          onClick={this.onLogoutClick}>Logout</a>
+      );
+    } else {
+      return (
+        <a href="#" className="navbar-link"
+          onClick={this.onLoginClick}>Login</a>
+      );
+    }
+  },
+
   render: function render () {
     return (
       <nav className="header navbar navbar-default navbar-static-top">
@@ -14,10 +37,18 @@ export default React.createClass({
             <li><Link to="/team">My Team</Link></li>
           </ul>
           <p className="navbar-text navbar-right">
-            Hello, {this.props.user.name}! <a href="#" className="navbar-link">Logout</a>
+            {this.greeting()}
+            {this.auth()}
           </p>
         </div>
       </nav>
     );
+  },
+
+  onLogoutClick: function onLogoutClick (evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    let action = User.logout();
+    this.props.dispatch(action);
   }
 });

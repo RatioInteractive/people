@@ -1,9 +1,21 @@
+export const LOGOUT = 'User:LOGOUT';
+
+export function logout () {
+  return {
+    type: LOGOUT,
+    payload: {}
+  };
+}
+
 export function reducer (user = {}, action) {
 
   let result = Object.assign({}, user);
 
+  console.debug('foo');
+
   switch (action.type) {
-    default:
+    case LOGOUT:
+      result = {};
       break;
   }
 
