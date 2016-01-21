@@ -37,10 +37,12 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
+    "history": "^1.17.0",
     "moment": "^2.11.1",
     "react": "^0.14.5",
     "react-dom": "^0.14.5",
     "react-redux": "^4.0.6",
+    "react-router": "^1.0.3",
     "redux": "^3.0.5",
     "redux-thunk": "^1.0.3",
     "uuid": "^2.0.1"

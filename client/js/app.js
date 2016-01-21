@@ -5,8 +5,10 @@ import ReactDom from 'react-dom';
 import thunkMiddleware from 'redux-thunk';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import Header from './containers/Header';
+import { Router, Route, browserHistory } from 'react-router';
+import App from './containers/App';
 import Scorecard from './containers/Scorecard';
+import Team from './containers/Team';
 import * as Comments from './actions/Comments';
 import * as Goals from './actions/Goals';
 import * as People from './actions/People';
@@ -41,14 +43,12 @@ let reducers = combineReducers({
 let store = applyMiddleware(logger, thunkMiddleware)(createStore)(reducers, state);
 
 ReactDom.render((
-  <div>
-    <Provider store={store}>
-      <Header/>
-    </Provider>
-    <div className="container">
-      <Provider store={store}>
-        <Scorecard/>
-      </Provider>
-    </div>
-  </div>
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path="/" component={App}>
+        <Route path="/scorecard" component={Scorecard}/>
+        <Route path="/team" component={Team}/>
+      </Route>
+    </Router>
+  </Provider>
 ), document.getElementById('root'));
