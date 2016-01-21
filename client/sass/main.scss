@@ -6,6 +6,12 @@ p:last-child {
   margin-bottom: 0;
 }
 
+.header {
+  .navbar-right {
+    margin-right: 0;
+  }
+}
+
 .list-item {
   .form-control {
     border: 0;

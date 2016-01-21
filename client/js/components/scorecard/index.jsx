@@ -41,11 +41,11 @@ export default React.createClass({
   render: function render () {
     return (
       <article className="scorecard">
-        <div className="page-header">
+        <header className="page-header">
           <h1>
             { this.props.person.name } <small>Scorecard</small>
           </h1>
-        </div>
+        </header>
         <div className="row">
           <div className="col-md-8">
             { this.navbar() }
