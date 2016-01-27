@@ -1,6 +1,13 @@
 import React from 'react';
+import TeamMember from './TeamMember.jsx';
 
 export default React.createClass({
+  teamMembers: function teamMembers() {
+    return this.props.people.map((person, i) => {
+      return <TeamMember key={person._id} person={person}/>
+    })
+  },
+
   render: function render () {
     return (
       <article className="team">
@@ -9,6 +16,9 @@ export default React.createClass({
             Team
           </h1>
         </header>
+        <div>
+          { this.teamMembers() }
+        </div>
       </article>
     );
   },
