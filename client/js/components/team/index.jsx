@@ -3,7 +3,7 @@ import TeamMember from './TeamMember.jsx';
 
 export default React.createClass({
   teamMembers: function teamMembers() {
-    return this.props.people.map((person, i) => {
+    return this.props.people.map((person) => {
       return <TeamMember key={person._id} person={person}/>
     })
   },

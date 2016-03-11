@@ -34,6 +34,14 @@ export default {
     description: 'Descended from astronomers bits of moving fluff, paroxysm of global death, Vangelis. Billions upon billions another world tesseract a still more glorious dawn awaits rings of Uranus something incredible is waiting to be known across the centuries cosmic ocean the carbon in our apple pies network of wormholes, white dwarf worldlets colonies, muse about.',
     created_on: '2016-01-01T15:55:45-08:00',
     updated_on: '2016-01-07T15:55:45-08:00'
+  },
+  {
+    _id: 'e967e8c6-e981-4ea5-b40f-844244a85633',
+    _parent: '7fd8cf79-133e-433c-a373-e78a63fb1d18',
+    name: 'Attend the XP reading group',
+    description: 'Descended from astronomers bits of moving fluff, paroxysm of global death, Vangelis. Billions upon billions another world tesseract a still more glorious dawn awaits rings of Uranus something incredible is waiting to be known across the centuries cosmic ocean the carbon in our apple pies network of wormholes, white dwarf worldlets colonies, muse about.',
+    created_on: '2016-01-01T15:55:45-08:00',
+    updated_on: '2016-01-07T15:55:45-08:00'
   }],
 
   // Low-level tasks. These are often children of goals.
