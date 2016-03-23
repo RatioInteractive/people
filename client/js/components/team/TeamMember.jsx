@@ -17,15 +17,14 @@ export default React.createClass({
     return (
       <div className="team-person panel panel-default">
         <div className="panel-heading clearfix">
-          <h2 ref="nameField"
-            className="panel-title pull-left">
-            { this.props.person.name || 'John Doe' }
+          <h2 ref="nameField" className="panel-title pull-left">
+              { this.props.person.name || 'John Doe' }
           </h2>
+          <div className="panel-title pull-right">
+            { this.getGoalsStatistic() }
+          </div>
         </div>
         <div className="panel-body">
-          <p ref="descriptionField">
-            { this.getGoalsStatistic() }
-          </p>
             { this.renderGoals() }
         </div>
       </div>
