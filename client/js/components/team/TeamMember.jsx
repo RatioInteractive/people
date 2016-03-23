@@ -11,7 +11,7 @@ export default React.createClass({
 
   renderGoals: function renderGoals() {
     return this.props.person.goals.map(goal => {
-      return <p> {goal.name} </p>
+      return <p key={goal._id}> {goal.name} </p>
     });
   },
 
