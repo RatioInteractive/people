@@ -1,5 +1,7 @@
 import React from 'react';
 import Moment from 'moment';
+import { Link } from 'react-router';
+import * as Person from '../../actions/Person.js';
 
 export default React.createClass({
   getGoalsStatistic : function getGoalsStatistic() {
@@ -14,11 +16,12 @@ export default React.createClass({
   },
 
   render: function render () {
+    var scorecardLink = "/scorecard/" + this.props.person._id;
     return (
       <div className="team-person panel panel-default">
         <div className="panel-heading clearfix">
           <h2 ref="nameField" className="panel-title pull-left">
-              { this.props.person.name || 'John Doe' }
+            <Link to={scorecardLink}>{ this.props.person.name || 'John Doe' }</Link>
           </h2>
           <div className="panel-title pull-right">
             { this.getGoalsStatistic() }
@@ -29,5 +32,5 @@ export default React.createClass({
         </div>
       </div>
     );
-  }
+  },
 });

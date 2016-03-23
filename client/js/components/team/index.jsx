@@ -4,7 +4,7 @@ import TeamMember from './TeamMember.jsx';
 export default React.createClass({
   teamMembers: function teamMembers() {
     return this.props.people.map((person) => {
-      return <TeamMember key={person._id} person={person}/>
+      return <TeamMember key={person._id} person={person} dispatch={this.props.dispatch} />
     })
   },
 
@@ -13,7 +13,7 @@ export default React.createClass({
       <article className="team">
         <header className="page-header">
           <h1>
-            Team
+            My Team
           </h1>
         </header>
         <div>

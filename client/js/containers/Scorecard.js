@@ -21,16 +21,25 @@ function getCommentsForPerson (comments, person) {
   return comments.filter(comment => comment._parent === person._id);
 }
 
-function propsFromState (state) {
-  let user = state.user;
-  let person = state.people[0] || {};
-  let goals = getGoalsForPerson(state.goals, person);
+function getPerson (personId, people) {
+  for(let i = 0; i < people.length; i++) {
+    let p = people[i];
+    if (p._id === personId)
+    {
+      return p;
+    }
+  }
+  console.log("Missing person!");
+  return people[0];
+}
+
+function propsFromState (state, ownProps) {
+  let person = getPerson(ownProps.params.personId, state.people);
+  let goals = mapTasksToGoals(state.tasks, getGoalsForPerson(state.goals, person));
   let comments = getCommentsForPerson(state.comments, person);
 
-  goals = mapTasksToGoals(state.tasks, state.goals);
-
   return Object.assign({}, {
-    user: user,
+    user: state.user,
     person: person,
     goals: goals,
     comments: comments
