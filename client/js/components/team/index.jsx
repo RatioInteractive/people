@@ -2,10 +2,10 @@ import React from 'react';
 import TeamMember from './TeamMember.jsx';
 
 export default React.createClass({
-  teamMembers: function teamMembers() {
+  teamMembers: function teamMembers () {
     return this.props.people.map((person) => {
-      return <TeamMember key={person._id} person={person} dispatch={this.props.dispatch} />
-    })
+      return <TeamMember key={person._id} person={person} dispatch={this.props.dispatch} />;
+    });
   },
 
   render: function render () {
