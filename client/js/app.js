@@ -1,5 +1,6 @@
 require('../sass/main.scss');
 
+import React from 'react';
 import ReactDom from 'react-dom';
 import thunkMiddleware from 'redux-thunk';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
