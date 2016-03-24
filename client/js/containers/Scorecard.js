@@ -22,14 +22,13 @@ function getCommentsForPerson (comments, person) {
 }
 
 function getPerson (personId, people) {
-  for(let i = 0; i < people.length; i++) {
+  for (let i = 0; i < people.length; i++) {
     let p = people[i];
-    if (p._id === personId)
-    {
+    if (p._id === personId) {
       return p;
     }
   }
-  console.log("Missing person!");
+  console.log('Missing person!');
   return people[0];
 }
 

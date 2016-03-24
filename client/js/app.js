@@ -1,13 +1,12 @@
 require('../sass/main.scss');
 
-import React from 'react';
 import ReactDom from 'react-dom';
 import thunkMiddleware from 'redux-thunk';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { Router, Route } from 'react-router';
-import createHashHistory from 'history/lib/createHashHistory'
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+import createHashHistory from 'history/lib/createHashHistory';
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import App from './containers/App';
 import Scorecard from './containers/Scorecard';
 import Team from './containers/Team';
