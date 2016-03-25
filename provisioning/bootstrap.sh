@@ -14,8 +14,8 @@ cp /var/src/provisioning/ntp.conf /etc/ntp.conf
 service ntp restart
 
 # Install and configure logrotate
-# apt-get install -y logrotate
-# cp /var/src/provisioning/logrotate.conf /etc/logrotate.d/people.conf
+apt-get install -y logrotate
+cp /var/src/provisioning/logrotate.conf /etc/logrotate.d/people.conf
 
 # Install and configure MongoDB
 apt-get install -y mongodb-org
