@@ -4,3 +4,4 @@ dist
 *.tmp
 assets_raw
 .DS_Store
+.vagrant
