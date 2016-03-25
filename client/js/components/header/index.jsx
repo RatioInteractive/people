@@ -7,7 +7,7 @@ export default React.createClass({
     if (this.props.user.name) {
       return (
         <ul className="nav navbar-nav">
-          <li><Link to="/scorecard">My Scorecard</Link></li>
+          <li><Link to={"/scorecard/" + this.props.user._id}>My Scorecard</Link></li>
           <li><Link to="/team">My Team</Link></li>
         </ul>
       );

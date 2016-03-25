@@ -10,7 +10,6 @@ export function logout () {
 export function reducer (user = {}, action) {
 
   let result = Object.assign({}, user);
-
   switch (action.type) {
     case LOGOUT:
       result = {};
