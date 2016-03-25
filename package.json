@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "webpack-dev-server --content-base /dist --inline --devtool source-map",
+    "vagrant-dev": "webpack-dev-server --content-base /dist --inline --devtool source-map --host 0.0.0.0 --port 8080",
     "test": "mocha --recursive --compilers js:babel-register ./test",
     "build": "webpack -p",
     "lint": "eslint client/**"
